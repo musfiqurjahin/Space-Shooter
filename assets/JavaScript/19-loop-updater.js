@@ -237,9 +237,20 @@ function update() {
 
                 lives--; livesEl.textContent = lives;
 
+                //Global top scorrer
                 if (lives <= 0) {
-                    // ── GAME OVER ──
-                    gameState = 'dead'; stopMusic();
+                    gameState = 'dead';
+                    stopMusic();
+
+                    if (score > globalTopScore) {
+                        const name = prompt(`🏆 NEW HIGH SCORE: ${score}\nEnter your name:`);
+                        if (name && name.trim()) {
+                            window._fb?.saveTopScore(name.trim(), score);
+                            globalTopScore = score;
+                            topScorerEl.textContent = `👑 ${name.trim()}  —  ${score.toLocaleString()} pts`;
+                        }
+                    }
+
                     oTitle.textContent = 'GAME OVER';
                     oSub.textContent = 'MISSION FAILED';
                     oMsg.innerHTML = `Score: <b style="color:#CCD6FF">${score}</b> &nbsp;|&nbsp; Hi: <b style="color:#7FF6FF">${hiScore}</b>`;

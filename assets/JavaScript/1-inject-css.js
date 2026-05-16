@@ -8,7 +8,7 @@
    accents, Orbitron / Share Tech Mono for that 80s vector-game feel.
    ═══════════════════════════════════════════════════════════════════════════ */
 (function injectCSS() {
-    const css = `
+  const css = `
     /* ── Google Fonts ── */
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Share+Tech+Mono&display=swap');
 
@@ -187,6 +187,30 @@
       100% { opacity: 0; transform: translateY(-55px); }
     }
 
+   #topScorer {
+  position: fixed;
+  bottom: 14px;
+  right: 14px;
+  left: auto;
+  transform: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #0d0a20, #080614);
+  border: 1px solid #2a1e50;
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  color: #FFD700;
+  text-shadow: 0 0 12px rgba(255,215,0,.5);
+  box-shadow: 0 0 20px rgba(255,215,0,.07), inset 0 1px 0 rgba(255,255,255,.04);
+  pointer-events: none;
+  z-index: 10;
+  white-space: nowrap;
+}
+
     /* ══════════════════════════════════════════════════════════════
        LEVEL FLASH — big center text on level-up
        ══════════════════════════════════════════════════════════════ */
@@ -250,8 +274,8 @@
     }
   `;
 
-    // Create <style> node and append to <head>
-    const styleEl = document.createElement('style');
-    styleEl.textContent = css;
-    document.head.appendChild(styleEl);
+  // Create <style> node and append to <head>
+  const styleEl = document.createElement('style');
+  styleEl.textContent = css;
+  document.head.appendChild(styleEl);
 })();

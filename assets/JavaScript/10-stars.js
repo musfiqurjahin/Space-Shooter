@@ -17,3 +17,27 @@ function makeStars() {
         hue: Math.random() < 0.15 ? rnd(200, 260) : 0  // 15% colored
     }));
 }
+
+
+//Global top scorrer :D
+
+let globalTopScore = 0;
+
+async function loadGlobalTopScore() {
+    if (!window._fb) {
+        requestAnimationFrame(loadGlobalTopScore);
+        return;
+    }
+    const data = await window._fb.getTopScore();
+    if (data && data.score) {
+        globalTopScore = data.score;
+        topScorerEl.textContent = `👑 ${data.name}  —  ${data.score.toLocaleString()} pts`;
+        if (data.score > hiScore) {
+            hiScore = data.score;
+            hiEl.textContent = hiScore;
+            localStorage.setItem('abHi', hiScore);
+        }
+    }
+}
+
+loadGlobalTopScore();

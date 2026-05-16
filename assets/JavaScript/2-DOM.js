@@ -57,7 +57,7 @@ const sDots = [0, 1, 2].map(() => el('div', { class: 'sDot' }, shieldBar));
 
 // 3. Top buttons (fullscreen + settings)
 const topButtons = el('div', { id: 'topButtons' }, document.body);
-const fsBtn = el('button', { class: 'icon-btn', text: '⛶', title: 'Fullscreen' }, topButtons);
+//const fsBtn = el('button', { class: 'icon-btn', text: '⛶', title: 'Fullscreen' }, topButtons);
 const settingsBtn = el('button', { class: 'icon-btn', text: '⚙', title: 'Settings' }, topButtons);
 
 // 4. Level flash overlay
@@ -67,7 +67,10 @@ const levelFlashText = el('span', {}, levelFlash);
 // 5. Scanlines
 el('div', { id: 'scanlines' }, document.body);
 
-// 6. Main overlay (start / pause / game over)
+// 6. Top Scorer display (newly added-16/05/2026)
+const topScorerEl = el('div', { id: 'topScorer' }, document.body);
+
+// 7. Main overlay (start / pause / game over)  ← this already exists, just continue
 const overlay = el('div', { id: 'overlay' }, document.body);
 const overlayBox = el('div', { id: 'overlayBox' }, overlay);
 const oTitle = el('h2', { text: 'ASTEROID BLASTER' }, overlayBox);
